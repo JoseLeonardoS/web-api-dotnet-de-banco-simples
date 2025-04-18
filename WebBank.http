@@ -1,0 +1,6 @@
+@WebBank_HostAddress = http://localhost:5153
+
+GET {{WebBank_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
