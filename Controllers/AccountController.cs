@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebBank.Models;
 using WebBank.Models.Dtos;
@@ -25,6 +24,7 @@ namespace WebBank.Controllers
             return Ok(token);
         }
 
+        [Authorize]
         [HttpGet("conta")]
         public async Task<ActionResult<ResponseModel<Account>>> GetAccountData(string email)
         {
@@ -39,6 +39,7 @@ namespace WebBank.Controllers
             return Ok(acc);
         }
 
+        [Authorize]
         [HttpPut("depositar")]
         public async Task<ActionResult<ResponseModel<Account>>> AddBalance(TransactionDto transaction)
         {
@@ -46,6 +47,7 @@ namespace WebBank.Controllers
             return Ok(trans);
         }
 
+        [Authorize]
         [HttpPut("sacar")]
         public async Task<ActionResult<ResponseModel<Account>>> WithdrawAmount(TransactionDto transaction)
         {
