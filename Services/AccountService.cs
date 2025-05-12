@@ -178,6 +178,12 @@ namespace WebBank.Services
             {
                 var account = await _context.Accounts.FirstOrDefaultAsync(x => x.Id == transaction.UserId);
 
+                if(transaction.Value <= 0)
+                {
+                    response.Message = "Valor inválido";
+                    return response;
+                }
+
                 if (account == null)
                 {
                     response.Message = "Conta não encontrada";
